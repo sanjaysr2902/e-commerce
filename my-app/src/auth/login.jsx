@@ -1,38 +1,4 @@
-// import { Link } from "react-router-dom";
 
-// export default function Login() {
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-//       <div className="bg-white shadow-lg rounded-2xl p-8 w-96">
-//         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
-//         <form className="space-y-4">
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           />
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           />
-//           <button
-//             type="submit"
-//             className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
-//           >
-//             Login
-//           </button>
-//         </form>
-//         <p className="text-sm text-center mt-4">
-//           Don’t have an account?{" "}
-//           <Link to="/register" className="text-blue-600 hover:underline">
-//             Register
-//           </Link>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
 
 
 
@@ -41,8 +7,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import Api from "./api";
-import { toast } from 'react-toastify';
-
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -62,9 +27,9 @@ export default function Login() {
       );
 
       if (res.data.length > 0) {
-        login(res.data[0]); // Save logged in user to context
+        login(res.data[0]); // Save logged-in user to context
         toast.success("Login successful!");
-        navigate("/", {replace:true}); // Redirect after login
+        navigate("/", { replace: true }); // Redirect after login
       } else {
         toast.warn("Invalid email or password!");
       }
@@ -74,17 +39,25 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
-      <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center text-white">Login</h2>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-950/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-96 border border-gray-700"
+      >
+        <h2 className="text-3xl font-extrabold mb-6 text-center text-sky-400 tracking-wide uppercase">
+          Sarax Accessories
+        </h2>
+        <p className="text-center text-gray-400 mb-8 text-sm">
+          Welcome back! Please log in to access your account.
+        </p>
 
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-3 mb-4 rounded bg-gray-800 text-white"
+          className="w-full p-3 mb-4 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-sky-400 outline-none"
           required
         />
 
@@ -94,13 +67,33 @@ export default function Login() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-3 mb-6 rounded bg-gray-800 text-white"
+          className="w-full p-3 mb-6 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-sky-400 outline-none"
           required
         />
 
-        <button type="submit" className="w-full bg-blue-600 py-3 rounded-lg text-white font-semibold hover:bg-blue-700">
+        <button
+          type="submit"
+          className="w-full bg-sky-500 py-3 rounded-lg text-white font-semibold text-lg shadow-md hover:bg-sky-600 transition-transform transform hover:scale-[1.02]"
+        >
           Login
         </button>
+
+        <p className="text-center text-gray-400 text-sm mt-4">
+          Don’t have an account?{" "}
+          <span
+            onClick={() => navigate("/register")}
+            className="text-sky-400 cursor-pointer hover:underline"
+          >
+            Register here
+          </span>
+          <br />
+             <span
+            onClick={() => navigate("/")}
+            className="text-sky-400 cursor-pointer hover:underline"
+          >
+            Guest login
+          </span>
+        </p>
       </form>
     </div>
   );

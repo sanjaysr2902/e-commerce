@@ -5,17 +5,7 @@
       "name": "sanjay",
       "email": "john@example.com",
       "password": "1234567890",
-      "cart": [
-        {
-          "id": "2",
-          "name": "Steering Wheel Cover",
-          "description": "Non-slip steering wheel cover with breathable material.",
-          "price": 19.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
-          "category": "Interior",
-          "quantity": 10
-        }
-      ],
+      "cart": [],
       "wishlist": [],
       "orders": []
     },
@@ -44,16 +34,25 @@
       "password": "1234567890",
       "cart": [
         {
-          "id": "2",
-          "name": "Steering Wheel Cover",
-          "description": "Non-slip steering wheel cover with breathable material.",
-          "price": 19.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
-          "category": "Interior",
-          "quantity": 6
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting",
+          "quantity": 1
         }
       ],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting"
+        }
+      ],
       "orders": []
     },
     {
@@ -90,6 +89,74 @@
         }
       ],
       "orders": []
+    },
+    {
+      "id": "5649",
+      "name": "xyz",
+      "email": "xyz@gmail.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": "1762200020102",
+          "items": [
+            {
+              "id": "3",
+              "name": "LED Headlights",
+              "description": "Bright, energy-efficient LED headlights for improved visibility.",
+              "price": 129.99,
+              "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+              "category": "Lighting",
+              "quantity": 1
+            }
+          ],
+          "shipping": {
+            "fullName": "NSDNDKSD",
+            "address": "SDKASNAKLA",
+            "city": ";ASKMALKMASL",
+            "postalCode": "453267890",
+            "phone": "346578902341"
+          },
+          "totalAmount": 129.99,
+          "paymentId": "pay_RPJXaiRt8HiVF4",
+          "date": "2025-11-03T20:00:20.102Z"
+        }
+      ]
+    },
+    {
+      "id": "cd24",
+      "name": "ashif",
+      "email": "ashif@gmail.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": "1762207225912",
+          "items": [
+            {
+              "id": "4",
+              "name": "Roof Rack",
+              "description": "Durable roof rack for carrying luggage, bikes, and more.",
+              "price": 199.99,
+              "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5YCa-MusCnmONsWyNdJ9hv6V_TID4-kg6Q&s",
+              "category": "Exterior",
+              "quantity": 1
+            }
+          ],
+          "shipping": {
+            "fullName": "fkdsf",
+            "address": "fsdgsfd",
+            "city": "ggsdsfg",
+            "postalCode": "213456",
+            "phone": "1234567890"
+          },
+          "totalAmount": 199.99,
+          "paymentId": "pay_RPLaL9JNxLzwoy",
+          "date": "2025-11-03T22:00:25.912Z"
+        }
+      ]
     }
   ],
   "products": [
