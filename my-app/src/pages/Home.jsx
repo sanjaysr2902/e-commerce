@@ -11,9 +11,7 @@ export default function Home() {
 <div>
 <Navbar/>
 <Banner/>
-{/* <ProductsPage/>
-<Cart/>
-<Whishlist/> */}
+
 <Footer/>
 
 </div>

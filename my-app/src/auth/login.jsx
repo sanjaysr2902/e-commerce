@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -44,7 +39,7 @@ export default function Login() {
         onSubmit={handleSubmit}
         className="bg-gray-950/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-96 border border-gray-700"
       >
-        <h2 className="text-3xl font-extrabold mb-6 text-center text-sky-400 tracking-wide uppercase">
+        <h2 className="text-3xl font-extrabold mb-6 text-center text-red-500 tracking-wide uppercase">
           Sarax Accessories
         </h2>
         <p className="text-center text-gray-400 mb-8 text-sm">
@@ -57,7 +52,7 @@ export default function Login() {
           placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-3 mb-4 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-sky-400 outline-none"
+          className="w-full p-3 mb-4 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-red-500 outline-none border border-gray-700 transition-all duration-300"
           required
         />
 
@@ -67,29 +62,29 @@ export default function Login() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-3 mb-6 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-sky-400 outline-none"
+          className="w-full p-3 mb-6 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-red-500 outline-none border border-gray-700 transition-all duration-300"
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-sky-500 py-3 rounded-lg text-white font-semibold text-lg shadow-md hover:bg-sky-600 transition-transform transform hover:scale-[1.02]"
+          className="w-full bg-red-600 py-3 rounded-lg text-white font-semibold text-lg shadow-md hover:bg-red-700 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-red-500/20"
         >
           Login
         </button>
 
         <p className="text-center text-gray-400 text-sm mt-4">
-          Don’t have an account?{" "}
+          Don't have an account?{" "}
           <span
             onClick={() => navigate("/register")}
-            className="text-sky-400 cursor-pointer hover:underline"
+            className="text-red-500 cursor-pointer hover:underline hover:text-red-400 transition-colors duration-300"
           >
             Register here
           </span>
           <br />
-             <span
+          <span
             onClick={() => navigate("/")}
-            className="text-sky-400 cursor-pointer hover:underline"
+            className="text-red-500 cursor-pointer hover:underline hover:text-red-400 transition-colors duration-300"
           >
             Guest login
           </span>

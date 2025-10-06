@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import App from "./App.jsx";
 import Register from "./auth/Register.jsx";
-import Login from "./auth/Login.jsx";
+import Login from "./auth/login.jsx";
 import ProductsPage from "./component/Products.jsx";
 import Banner from "./component/Banner.jsx";
 import Navbar from "./component/Navbar.jsx";
@@ -15,7 +15,6 @@ import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
 import Cart from "./pages/cart.jsx";
-
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/Cartcontext.jsx";
 import { WishlistProvider } from "./context/Wishlistcontext.jsx";
@@ -26,6 +25,7 @@ import ProtectedRoute from "./component/ProtectedRoute.jsx";
 
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
+import Profile from "./pages/Profile.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -45,6 +45,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   <Route path="/products/:id" element={<ProductDetailsPage />} />
                   <Route path="/learnmore" element={<LearnMore />} />
                   <Route path="/banner" element={<Banner />} />
+                                    <Route path="/profile" element={<Profile />} />
+
                   <Route path="/navbar" element={<Navbar />} />
                   <Route path="/footer" element={<Footer />} />
 

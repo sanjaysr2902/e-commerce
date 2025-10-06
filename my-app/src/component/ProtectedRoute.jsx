@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+
+
+
+// ProtectedRoute.jsx
 import { Navigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext.jsx";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function ProtectedRoute({ children }) {
   const { user } = useContext(AuthContext);
 
-  if (!user) {
-    // Not logged in, redirect to login
-    return <Navigate to="/login" replace />;
-  }
+  // If user is null but localStorage has a user, it will be set by AuthContext
+  if (user === null) return null; // wait until AuthContext loads
 
-  // Logged in, allow access
-  return children;
+  return user ? children : <Navigate to="/login" />;
 }

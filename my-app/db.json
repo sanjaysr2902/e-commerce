@@ -5,7 +5,53 @@
       "name": "sanjay",
       "email": "john@example.com",
       "password": "1234567890",
-      "cart": [],
+      "cart": [
+        {
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting",
+          "quantity": 21
+        },
+        {
+          "id": "4",
+          "name": "Roof Rack",
+          "description": "Durable roof rack for carrying luggage, bikes, and more.",
+          "price": 199.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5YCa-MusCnmONsWyNdJ9hv6V_TID4-kg6Q&s",
+          "category": "Exterior",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "name": "Car Seat Cover",
+          "description": "Premium leather seat cover for ultimate comfort and durability.",
+          "price": 79.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+          "category": "Interior",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "Car Vacuum Cleaner",
+          "description": "Portable handheld vacuum cleaner for easy car cleaning.",
+          "price": 39.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVojT12eEbpQpeb8NndZVpB4ilEn25Co6iow&s",
+          "category": "Accessories",
+          "quantity": 1
+        }
+      ],
       "wishlist": [],
       "orders": []
     },
@@ -95,11 +141,56 @@
       "name": "xyz",
       "email": "xyz@gmail.com",
       "password": "1234567890",
-      "cart": [],
-      "wishlist": [],
+      "cart": [
+        {
+          "id": "1",
+          "name": "Car Seat Cover",
+          "description": "Premium leather seat cover for ultimate comfort and durability.",
+          "price": 79.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+          "category": "Interior",
+          "quantity": 1
+        },
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting",
+          "quantity": 1
+        },
+        {
+          "id": "9",
+          "name": "Portable Car Air Purifier",
+          "description": "Removes odors, smoke, and allergens. Perfect for cities with poor air quality.",
+          "price": 59.99,
+          "image": "https://ambraneindia.com/cdn/shop/files/2_jpg_1e6d28f0-3072-4937-bfd3-e95560193905.webp?v=1729535215&width=1800",
+          "category": "Accessories",
+          "quantity": 1
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting"
+        },
+        {
+          "id": "9",
+          "name": "Portable Car Air Purifier",
+          "description": "Removes odors, smoke, and allergens. Perfect for cities with poor air quality.",
+          "price": 59.99,
+          "image": "https://ambraneindia.com/cdn/shop/files/2_jpg_1e6d28f0-3072-4937-bfd3-e95560193905.webp?v=1729535215&width=1800",
+          "category": "Accessories"
+        }
+      ],
       "orders": [
         {
-          "id": "1762200020102",
+          "id": "1759723284518",
           "items": [
             {
               "id": "3",
@@ -109,18 +200,28 @@
               "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
               "category": "Lighting",
               "quantity": 1
+            },
+            {
+              "id": "1",
+              "name": "Car Seat Cover",
+              "description": "Premium leather seat cover for ultimate comfort and durability.",
+              "price": 79.99,
+              "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+              "category": "Interior",
+              "quantity": 1
             }
           ],
           "shipping": {
-            "fullName": "NSDNDKSD",
-            "address": "SDKASNAKLA",
-            "city": ";ASKMALKMASL",
-            "postalCode": "453267890",
-            "phone": "346578902341"
+            "fullName": "23456",
+            "address": "45678",
+            "city": "3456789",
+            "postalCode": "6789",
+            "phone": "ertyui"
           },
-          "totalAmount": 129.99,
-          "paymentId": "pay_RPJXaiRt8HiVF4",
-          "date": "2025-11-03T20:00:20.102Z"
+          "totalAmount": 209.98000000000002,
+          "paymentId": "pay_RQ32FHjrZp96pQ",
+          "date": "2025-10-06T04:01:24.519Z",
+          "status": "Confirmed"
         }
       ]
     },
@@ -155,6 +256,51 @@
           "totalAmount": 199.99,
           "paymentId": "pay_RPLaL9JNxLzwoy",
           "date": "2025-11-03T22:00:25.912Z"
+        }
+      ]
+    },
+    {
+      "id": "2693",
+      "name": "sanjay",
+      "email": "sanjay@gmail.com",
+      "password": "1234567890",
+      "cart": [
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting",
+          "quantity": 1
+        }
+      ],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": "1759729308832",
+          "items": [
+            {
+              "id": "3",
+              "name": "LED Headlights",
+              "description": "Bright, energy-efficient LED headlights for improved visibility.",
+              "price": 129.99,
+              "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+              "category": "Lighting",
+              "quantity": 1
+            }
+          ],
+          "shipping": {
+            "fullName": "xcvbn",
+            "address": "cytfj",
+            "city": "sxas",
+            "postalCode": "xscsa",
+            "phone": "c"
+          },
+          "totalAmount": 129.99,
+          "paymentId": "pay_RQ4kJZX36iF7se",
+          "date": "2025-10-06T05:41:48.832Z",
+          "status": "Confirmed"
         }
       ]
     }
