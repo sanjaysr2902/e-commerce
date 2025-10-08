@@ -5,7 +5,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Load user from localStorage on page refresh
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -14,12 +13,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (userData) => {
-    // Pick only what you need
     const filteredUser = {
       id: userData.id,
-      username: userData.name,
+      name: userData.name,
       email: userData.email,
-      
+      role: userData.role,          // ✅ store role for clarity
+      isAdmin: userData.role === "admin",
     };
 
     setUser(filteredUser);
@@ -37,19 +36,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

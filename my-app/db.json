@@ -1,6 +1,33 @@
 {
   "users": [
     {
+      "id": "15",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "cart": [
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting",
+          "quantity": 3
+        },
+        {
+          "id": "4",
+          "name": "Roof Rack",
+          "description": "Durable roof rack for carrying luggage, bikes, and more.",
+          "price": 199.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5YCa-MusCnmONsWyNdJ9hv6V_TID4-kg6Q&s",
+          "category": "Exterior",
+          "quantity": 1
+        }
+      ]
+    },
+    {
       "id": "1",
       "name": "sanjay",
       "email": "john@example.com",
@@ -86,6 +113,24 @@
           "price": 129.99,
           "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
           "category": "Lighting",
+          "quantity": 2
+        },
+        {
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "name": "Car Seat Cover",
+          "description": "Premium leather seat cover for ultimate comfort and durability.",
+          "price": 79.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+          "category": "Interior",
           "quantity": 1
         }
       ],
@@ -97,6 +142,14 @@
           "price": 129.99,
           "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
           "category": "Lighting"
+        },
+        {
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior"
         }
       ],
       "orders": []
@@ -141,35 +194,7 @@
       "name": "xyz",
       "email": "xyz@gmail.com",
       "password": "1234567890",
-      "cart": [
-        {
-          "id": "1",
-          "name": "Car Seat Cover",
-          "description": "Premium leather seat cover for ultimate comfort and durability.",
-          "price": 79.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
-          "category": "Interior",
-          "quantity": 1
-        },
-        {
-          "id": "3",
-          "name": "LED Headlights",
-          "description": "Bright, energy-efficient LED headlights for improved visibility.",
-          "price": 129.99,
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
-          "category": "Lighting",
-          "quantity": 1
-        },
-        {
-          "id": "9",
-          "name": "Portable Car Air Purifier",
-          "description": "Removes odors, smoke, and allergens. Perfect for cities with poor air quality.",
-          "price": 59.99,
-          "image": "https://ambraneindia.com/cdn/shop/files/2_jpg_1e6d28f0-3072-4937-bfd3-e95560193905.webp?v=1729535215&width=1800",
-          "category": "Accessories",
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "wishlist": [
         {
           "id": "3",
@@ -186,41 +211,40 @@
           "price": 59.99,
           "image": "https://ambraneindia.com/cdn/shop/files/2_jpg_1e6d28f0-3072-4937-bfd3-e95560193905.webp?v=1729535215&width=1800",
           "category": "Accessories"
+        },
+        {
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior"
         }
       ],
       "orders": [
         {
-          "id": "1759723284518",
+          "id": "1759843290228",
           "items": [
             {
-              "id": "3",
-              "name": "LED Headlights",
-              "description": "Bright, energy-efficient LED headlights for improved visibility.",
-              "price": 129.99,
-              "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
-              "category": "Lighting",
-              "quantity": 1
-            },
-            {
-              "id": "1",
-              "name": "Car Seat Cover",
-              "description": "Premium leather seat cover for ultimate comfort and durability.",
-              "price": 79.99,
-              "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+              "id": "2",
+              "name": "Steering Wheel Cover",
+              "description": "Non-slip steering wheel cover with breathable material.",
+              "price": 19.99,
+              "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
               "category": "Interior",
-              "quantity": 1
+              "quantity": 23
             }
           ],
           "shipping": {
-            "fullName": "23456",
-            "address": "45678",
-            "city": "3456789",
-            "postalCode": "6789",
-            "phone": "ertyui"
+            "fullName": "dwedwf",
+            "address": "r3",
+            "city": "f3r",
+            "postalCode": "f3r",
+            "phone": "gf"
           },
-          "totalAmount": 209.98000000000002,
-          "paymentId": "pay_RQ32FHjrZp96pQ",
-          "date": "2025-10-06T04:01:24.519Z",
+          "totalAmount": 459.77,
+          "paymentId": "pay_RQb70Cr5vq5VnY",
+          "date": "2025-10-07T13:21:30.228Z",
           "status": "Confirmed"
         }
       ]
@@ -266,19 +290,19 @@
       "password": "1234567890",
       "cart": [
         {
-          "id": "3",
-          "name": "LED Headlights",
-          "description": "Bright, energy-efficient LED headlights for improved visibility.",
-          "price": 129.99,
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
-          "category": "Lighting",
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior",
           "quantity": 1
         }
       ],
       "wishlist": [],
       "orders": [
         {
-          "id": "1759729308832",
+          "id": "1759730939251",
           "items": [
             {
               "id": "3",
@@ -288,18 +312,27 @@
               "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
               "category": "Lighting",
               "quantity": 1
+            },
+            {
+              "id": "2",
+              "name": "Steering Wheel Cover",
+              "description": "Non-slip steering wheel cover with breathable material.",
+              "price": 19.99,
+              "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+              "category": "Interior",
+              "quantity": 3
             }
           ],
           "shipping": {
-            "fullName": "xcvbn",
-            "address": "cytfj",
-            "city": "sxas",
-            "postalCode": "xscsa",
-            "phone": "c"
+            "fullName": "fgh",
+            "address": "edfghjk",
+            "city": "nm,",
+            "postalCode": "nm",
+            "phone": "crxtryuigh"
           },
-          "totalAmount": 129.99,
-          "paymentId": "pay_RQ4kJZX36iF7se",
-          "date": "2025-10-06T05:41:48.832Z",
+          "totalAmount": 189.96,
+          "paymentId": "pay_RQ5D180fPoKQ2h",
+          "date": "2025-10-06T06:08:59.251Z",
           "status": "Confirmed"
         }
       ]

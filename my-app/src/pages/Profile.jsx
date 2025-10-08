@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { CartContext } from "../context/Cartcontext";
+import { WishlistContext } from "../context/Wishlistcontext";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { user, logout } = useContext(AuthContext);
+  const { cart } = useContext(CartContext);
+  const { wishlist } = useContext(WishlistContext);
   const navigate = useNavigate();
 
   if (!user) {
@@ -37,7 +41,7 @@ export default function Profile() {
         <p className="text-gray-400 text-lg mt-6">Your exclusive account dashboard</p>
       </div>
 
-      {/* Premium Profile Card */}
+      {/* Profile Card */}
       <div className="max-w-2xl mx-auto">
         <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-[#8B0000]/30 transition-all duration-500 shadow-2xl">
           
@@ -150,8 +154,8 @@ export default function Profile() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
             </div>
-            <h3 className="text-white font-bold text-2xl mb-1">0</h3>
-            <p className="text-gray-400 text-sm">Total Orders</p>
+            <h3 className="text-white font-bold text-2xl mb-1">{cart.length}</h3>
+            <p className="text-gray-400 text-sm">Cart Items</p>
           </div>
 
           {/* Wishlist Card */}
@@ -161,7 +165,7 @@ export default function Profile() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
-            <h3 className="text-white font-bold text-2xl mb-1">0</h3>
+            <h3 className="text-white font-bold text-2xl mb-1">{wishlist.length}</h3>
             <p className="text-gray-400 text-sm">Wishlist Items</p>
           </div>
 

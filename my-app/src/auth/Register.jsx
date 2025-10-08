@@ -8,7 +8,9 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+     role: "user",
+     isBlocked: "false"
   });
 
   const navigate = useNavigate();
