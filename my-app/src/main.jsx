@@ -29,6 +29,9 @@ import Profile from "./pages/Profile.jsx";
 import AdminDashboard from "./admin/adminDashBoarder.jsx";
 import ManageProducts from "./admin/ManageProduct.jsx";
 import AdminLayout from "./admin/AdminLayout.jsx";
+import ManageUsers from "./admin/ManageUser.jsx";
+import AdminOrders from "./admin/ManageOrder.jsx";
+import Orders from "./pages/Orders.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -52,6 +55,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
                   <Route path="/navbar" element={<Navbar />} />
                   <Route path="/footer" element={<Footer />} />
+                  <Route path="/orders" element={<Orders/>} />
 
                   {/* Protected routes */}
                   <Route
@@ -98,6 +102,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     <Route path="products" element={<ManageProducts />} />
                     {/* <Route path="users" element={<ManageUser />} /> */}
                     {/* <Route path="orders" element={<ManageOrder />} /> */}
+                    <Route path="/admin/users" element={<ManageUsers />} />
+                      <Route path="/admin/orders" element={<AdminOrders />} />
+
+
                   </Route>
 
                 </Routes>

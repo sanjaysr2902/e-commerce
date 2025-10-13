@@ -1,14 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { CartContext } from "../context/Cartcontext";
 import { WishlistContext } from "../context/Wishlistcontext";
 import { useNavigate } from "react-router-dom";
+import Api from "../auth/api";
 
 export default function Profile() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, setUser } = useContext(AuthContext); // Assuming setUser available to update context
   const { cart } = useContext(CartContext);
   const { wishlist } = useContext(WishlistContext);
+  const [orders, setOrders] = useState([]);
+  const [editUsername, setEditUsername] = useState(false);
+  const [newUsername, setNewUsername] = useState(user?.username || "");
   const navigate = useNavigate();
+
+  // Fetch latest orders whenever user changes
+  useEffect(() => {
+    const fetchOrders = async () => {
+      if (user) {
+        try {
+          const res = await Api.get(`/users/${user.id}`);
+          setOrders(res.data.orders || []);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    };
+    fetchOrders();
+  }, [user]);
 
   if (!user) {
     return (
@@ -21,166 +40,178 @@ export default function Profile() {
     );
   }
 
+  const totalOrders = orders.length;
+
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
 
+  const handleUsernameUpdate = async () => {
+    if (!newUsername.trim()) return;
+
+    try {
+      const res = await Api.patch(`/users/${user.id}`, { username: newUsername });
+      setUser(res.data); // Update user in AuthContext
+      setEditUsername(false);
+    } catch (err) {
+      console.error("Failed to update username:", err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-      {/* Premium Header */}
+      {/* Header */}
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <div className="relative inline-block">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              PROFILE
-            </span>
-          </h1>
-          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-[#8B0000] to-transparent"></div>
-        </div>
-        <p className="text-gray-400 text-lg mt-6">Your exclusive account dashboard</p>
+        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          PROFILE
+        </h1>
+        <p className="text-gray-400 text-lg mt-2">Your exclusive account dashboard</p>
       </div>
 
       {/* Profile Card */}
       <div className="max-w-2xl mx-auto">
-        <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-[#8B0000]/30 transition-all duration-500 shadow-2xl">
+        <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-800 shadow-2xl overflow-hidden">
           
           {/* Profile Header */}
           <div className="bg-gradient-to-r from-[#8B0000] to-[#A00000] p-8 text-center">
             <div className="w-24 h-24 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center border-2 border-white/20">
-              <span className="text-2xl font-bold text-white">
+              <span className="text-3xl font-bold text-white">
                 {user.username?.charAt(0).toUpperCase()}
               </span>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">{user.username}</h2>
-            <p className="text-white/80">Premium Member</p>
+
+            {/* Editable Username */}
+            {editUsername ? (
+              <div className="flex justify-center gap-2">
+                <input
+                  type="text"
+                  value={newUsername}
+                  onChange={(e) => setNewUsername(e.target.value)}
+                  className="rounded px-2 py-1 text-black"
+                />
+                <button
+                  onClick={handleUsernameUpdate}
+                  className="bg-[#8B0000] px-3 py-1 rounded text-white hover:bg-[#A00000]"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => { setEditUsername(false); setNewUsername(user.username); }}
+                  className="bg-gray-600 px-3 py-1 rounded text-white hover:bg-gray-700"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <div className="flex justify-center items-center gap-2">
+                <h2 className="text-2xl font-bold text-white mb-1">{user.username}</h2>
+                <button
+                  onClick={() => setEditUsername(true)}
+                  className="text-sm text-gray-300 hover:text-white"
+                >
+                  Edit
+                </button>
+              </div>
+            )}
+
+            <p className="text-white/80">{user.role || "Member"}</p>
           </div>
 
           {/* Profile Details */}
-          <div className="p-8">
-            <div className="space-y-6">
-              {/* User ID */}
-              <div className="flex items-center justify-between py-4 border-b border-gray-800">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">User ID</p>
-                    <p className="text-white font-medium">{user.id}</p>
-                  </div>
-                </div>
-              </div>
+          <div className="p-8 space-y-6">
+            <ProfileRow label="User ID" value={user.id} icon="id" />
+            <ProfileRow label="Email" value={user.email} icon="email" />
+            {user.phone && <ProfileRow label="Phone" value={user.phone} icon="phone" />}
+            {user.address && <ProfileRow label="Address" value={user.address} icon="location" />}
 
-              {/* Username */}
-              <div className="flex items-center justify-between py-4 border-b border-gray-800">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Username</p>
-                    <p className="text-white font-medium">{user.username}</p>
-                  </div>
+            {/* Orders */}
+            <div className="flex items-center justify-between py-4 border-b border-gray-800">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Total Orders</p>
+                  <p className="text-white font-medium">{totalOrders}</p>
                 </div>
               </div>
-
-              {/* Email */}
-              <div className="flex items-center justify-between py-4 border-b border-gray-800">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email Address</p>
-                    <p className="text-white font-medium">{user.email}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Member Since */}
-              <div className="flex items-center justify-between py-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Member Since</p>
-                    <p className="text-white font-medium">Premium Account</p>
-                  </div>
-                </div>
-              </div>
+              {totalOrders > 0 && (
+                <button
+                  onClick={() => navigate("/orders")}
+                  className="text-[#8B0000] hover:text-[#A00000] transition-colors duration-300 text-sm font-medium"
+                >
+                  View Orders
+                </button>
+              )}
             </div>
 
-            {/* Action Buttons */}
-            <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row gap-4">
+            {user.createdAt && (
+              <ProfileRow
+                label="Member Since"
+                value={new Date(user.createdAt).toLocaleDateString()}
+                icon="calendar"
+              />
+            )}
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/products')}
-                className="flex-1 bg-transparent border border-gray-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300 flex items-center justify-center gap-2"
+                onClick={() => navigate("/products")}
+                className="flex-1 bg-transparent border border-gray-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-all duration-300"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
                 Continue Shopping
               </button>
-              
               <button
                 onClick={handleLogout}
-                className="flex-1 bg-gradient-to-r from-[#8B0000] to-[#A00000] text-white py-3 px-6 rounded-lg font-medium hover:from-[#A00000] hover:to-[#8B0000] transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-[#8B0000]/20"
+                className="flex-1 bg-gradient-to-r from-[#8B0000] to-[#A00000] text-white py-3 px-6 rounded-lg font-medium hover:from-[#A00000] hover:to-[#8B0000] transform hover:scale-105 transition-all duration-300"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
                 Logout
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          {/* Orders Card */}
-          <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-xl border border-gray-800 p-6 text-center hover:border-[#8B0000]/30 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#8B0000]/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
-            </div>
-            <h3 className="text-white font-bold text-2xl mb-1">{cart.length}</h3>
-            <p className="text-gray-400 text-sm">Cart Items</p>
-          </div>
-
-          {/* Wishlist Card */}
-          <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-xl border border-gray-800 p-6 text-center hover:border-[#8B0000]/30 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#8B0000]/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-            </div>
-            <h3 className="text-white font-bold text-2xl mb-1">{wishlist.length}</h3>
-            <p className="text-gray-400 text-sm">Wishlist Items</p>
-          </div>
-
-          {/* Member Card */}
-          <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-xl border border-gray-800 p-6 text-center hover:border-[#8B0000]/30 transition-all duration-300">
-            <div className="w-12 h-12 bg-[#8B0000]/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <h3 className="text-white font-bold text-2xl mb-1">Premium</h3>
-            <p className="text-gray-400 text-sm">Membership</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+            <StatCard label="Cart Items" value={cart.length} />
+            <StatCard label="Wishlist Items" value={wishlist.length} />
+            <StatCard label="Total Orders" value={totalOrders} />
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+// Reusable profile row component
+const ProfileRow = ({ label, value, icon }) => {
+  const icons = {
+    id: <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0" /></svg>,
+    email: <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
+    phone: <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3l2 5-2 2 2 2 2-2 2 2 2-2 2 2 2-2 2 5h3a2 2 0 012 2v2a2 2 0 01-2 2h-3l-2-5 2-2-2-2-2 2-2-2-2 2-2-2-2 2-2-5H5a2 2 0 01-2-2V5z" /></svg>,
+    location: <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22s8-4.5 8-10-3.582-8-8-8-8 3.582-8 8 8 10 8 10z"/></svg>,
+    calendar: <svg className="w-5 h-5 text-[#8B0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>,
+  };
+
+  return (
+    <div className="flex items-center justify-between py-4 border-b border-gray-800">
+      <div className="flex items-center space-x-3">
+        <div className="w-10 h-10 bg-[#8B0000]/20 rounded-lg flex items-center justify-center">
+          {icons[icon]}
+        </div>
+        <div>
+          <p className="text-sm text-gray-400">{label}</p>
+          <p className="text-white font-medium">{value}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Reusable stats card
+const StatCard = ({ label, value }) => (
+  <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-xl border border-gray-800 p-6 text-center hover:border-[#8B0000]/30 transition-all duration-300">
+    <h3 className="text-white font-bold text-2xl mb-1">{value}</h3>
+    <p className="text-gray-400 text-sm">{label}</p>
+  </div>
+);

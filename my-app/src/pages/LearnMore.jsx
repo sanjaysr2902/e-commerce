@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 
 export default function LearnMore() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-8">
-      <div className="max-w-4xl mx-auto p-10">
+    <div
+      className="min-h-screen flex items-center justify-center p-8 bg-cover bg-center relative"
+      style={{
+        backgroundImage:
+          "url('https://www.wsupercars.com/wallpapers-regular/Bugatti/2025-Bugatti-Brouillard-001-2100.jpg')",
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      <div className="relative z-10 max-w-4xl mx-auto p-10 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-red-500">
           About Sarax Car Accessories
         </h1>
