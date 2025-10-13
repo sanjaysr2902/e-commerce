@@ -26,7 +26,7 @@ import ProtectedRoute from "./component/ProtectedRoute.jsx";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./pages/Profile.jsx";
-import AdminDashboard from "./admin/adminDashBoarder.jsx";
+import AdminDashboard from "./admin/AdminDashBoarder.jsx";
 import ManageProducts from "./admin/ManageProduct.jsx";
 import AdminLayout from "./admin/AdminLayout.jsx";
 import ManageUsers from "./admin/ManageUser.jsx";
