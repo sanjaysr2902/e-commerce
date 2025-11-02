@@ -1,0 +1,182 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "sanjay",
+      "email": "john@example.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": [],
+      "orders": []
+    },
+    {
+      "id": "2",
+      "name": "jane",
+      "email": "jane@example.com",
+      "password": "password",
+      "cart": [],
+      "wishlist": [],
+      "orders": []
+    },
+    {
+      "id": "2bfa",
+      "name": "a",
+      "email": "a@gmail.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": [],
+      "orders": []
+    },
+    {
+      "id": "4a1f",
+      "name": "x",
+      "email": "x@gmail.com",
+      "password": "1234567890",
+      "cart": [
+        {
+          "id": "1",
+          "name": "Car Seat Cover",
+          "description": "Premium leather seat cover for ultimate comfort and durability.",
+          "price": 79.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+          "category": "Interior"
+        },
+        {
+          "id": "10",
+          "name": "Phone Holder / Mount",
+          "description": "360-degree adjustable phone mount for hands-free navigation and safety.",
+          "price": 24.99,
+          "image": "https://www.andobil.com/uploads/images/20220406/9439f7a4ca1c38164cc9f4d2b000015c.jpg",
+          "category": "Accessories"
+        }
+      ],
+      "wishlist": [],
+      "orders": []
+    },
+    {
+      "id": "ebd4",
+      "name": "b",
+      "email": "b@gmail.com",
+      "password": "1234567890",
+      "cart": [
+        {
+          "id": "1",
+          "name": "Car Seat Cover",
+          "description": "Premium leather seat cover for ultimate comfort and durability.",
+          "price": 79.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+          "category": "Interior"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting"
+        },
+        {
+          "id": "3",
+          "name": "LED Headlights",
+          "description": "Bright, energy-efficient LED headlights for improved visibility.",
+          "price": 129.99,
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+          "category": "Lighting"
+        }
+      ],
+      "orders": []
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Car Seat Cover",
+      "description": "Premium leather seat cover for ultimate comfort and durability.",
+      "price": 79.99,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
+      "category": "Interior"
+    },
+    {
+      "id": "2",
+      "name": "Steering Wheel Cover",
+      "description": "Non-slip steering wheel cover with breathable material.",
+      "price": 19.99,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+      "category": "Interior"
+    },
+    {
+      "id": "3",
+      "name": "LED Headlights",
+      "description": "Bright, energy-efficient LED headlights for improved visibility.",
+      "price": 129.99,
+      "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSw6CamxGoIA02yvZjDYW0fvgGCr1r3tofxkBtSEGuHr2rRYlTH",
+      "category": "Lighting"
+    },
+    {
+      "id": "4",
+      "name": "Roof Rack",
+      "description": "Durable roof rack for carrying luggage, bikes, and more.",
+      "price": 199.99,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd5YCa-MusCnmONsWyNdJ9hv6V_TID4-kg6Q&s",
+      "category": "Exterior"
+    },
+    {
+      "id": "5",
+      "name": "Car Vacuum Cleaner",
+      "description": "Portable handheld vacuum cleaner for easy car cleaning.",
+      "price": 39.99,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVojT12eEbpQpeb8NndZVpB4ilEn25Co6iow&s",
+      "category": "Accessories"
+    },
+    {
+      "id": "6",
+      "name": "Dashcam (Dual Lens, Night Vision)",
+      "description": "Smart dashcam with front and rear dual-lens recording, night vision, and accident detection.",
+      "price": 149.99,
+      "image": "https://hiwoodman.com/wp-content/uploads/2024/03/square-Copy-600x600.webp",
+      "category": "Electronics"
+    },
+    {
+      "id": "7",
+      "name": "Tire Pressure Monitoring System (TPMS)",
+      "description": "Real-time tire pressure and temperature monitoring for improved safety and fuel efficiency.",
+      "price": 89.99,
+      "image": "https://blaupunkt-cdn.cyllene.cloud/wp-content/uploads/2021/08/TPMS-2.1-EV-380x380.png",
+      "category": "Electronics"
+    },
+    {
+      "id": "8",
+      "name": "Heads-Up Display (HUD)",
+      "description": "Projects speed, navigation, and alerts onto the windshield for safer driving.",
+      "price": 119.99,
+      "image": "https://blogs.gomechanic.com/wp-content/uploads/2020/12/Headsup-display.jpeg",
+      "category": "Electronics"
+    },
+    {
+      "id": "9",
+      "name": "Portable Car Air Purifier",
+      "description": "Removes odors, smoke, and allergens. Perfect for cities with poor air quality.",
+      "price": 59.99,
+      "image": "https://ambraneindia.com/cdn/shop/files/2_jpg_1e6d28f0-3072-4937-bfd3-e95560193905.webp?v=1729535215&width=1800",
+      "category": "Accessories"
+    },
+    {
+      "id": "10",
+      "name": "Phone Holder / Mount",
+      "description": "360-degree adjustable phone mount for hands-free navigation and safety.",
+      "price": 24.99,
+      "image": "https://www.andobil.com/uploads/images/20220406/9439f7a4ca1c38164cc9f4d2b000015c.jpg",
+      "category": "Accessories"
+    },
+    {
+      "id": "11",
+      "name": "Floor Mats (All Weather)",
+      "description": "Durable, waterproof, and easy-to-clean floor mats to protect your car interior.",
+      "price": 49.99,
+      "image": "https://www.lasfit.com/cdn/shop/files/Toyota-Tacoma-2024-2025-floor-mats-custom-fit.jpg",
+      "category": "Interior"
+    }
+  ]
+}
