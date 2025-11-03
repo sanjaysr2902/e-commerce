@@ -5,7 +5,17 @@
       "name": "sanjay",
       "email": "john@example.com",
       "password": "1234567890",
-      "cart": [],
+      "cart": [
+        {
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior",
+          "quantity": 10
+        }
+      ],
       "wishlist": [],
       "orders": []
     },
@@ -34,20 +44,13 @@
       "password": "1234567890",
       "cart": [
         {
-          "id": "1",
-          "name": "Car Seat Cover",
-          "description": "Premium leather seat cover for ultimate comfort and durability.",
-          "price": 79.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLirVELFk_loBk3zfuVR-p4io9ZZ7Tqf6Aw&s",
-          "category": "Interior"
-        },
-        {
-          "id": "10",
-          "name": "Phone Holder / Mount",
-          "description": "360-degree adjustable phone mount for hands-free navigation and safety.",
-          "price": 24.99,
-          "image": "https://www.andobil.com/uploads/images/20220406/9439f7a4ca1c38164cc9f4d2b000015c.jpg",
-          "category": "Accessories"
+          "id": "2",
+          "name": "Steering Wheel Cover",
+          "description": "Non-slip steering wheel cover with breathable material.",
+          "price": 19.99,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWBKa3nl2pimO3qTNdCK4dH7NgtR1Jj-KeBw&s",
+          "category": "Interior",
+          "quantity": 6
         }
       ],
       "wishlist": [],
