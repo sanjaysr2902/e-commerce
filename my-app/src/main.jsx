@@ -32,12 +32,11 @@ import AdminLayout from "./admin/AdminLayout.jsx";
 import ManageUsers from "./admin/ManageUser.jsx";
 import AdminOrders from "./admin/ManageOrder.jsx";
 import Orders from "./pages/Orders.jsx";
-import { Provider } from "react-redux";
-import { store } from "./redux/store.js";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-  <Provider store={store}>
+
     <ToastContainer />
     <AuthProvider>
       <ShippingProvider>
@@ -117,7 +116,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </WishlistProvider>
       </ShippingProvider>
     </AuthProvider>
-    </Provider>
+
   </>
 );
 
