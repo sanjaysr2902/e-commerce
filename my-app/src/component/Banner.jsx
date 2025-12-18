@@ -44,7 +44,6 @@ const SlideContent = memo(({ slide, isActive }) => {
 
   return (
     <div className="h-screen relative flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image with Enhanced Effects */}
       <div className="absolute inset-0">
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center z-20">
@@ -168,7 +167,7 @@ const SlideContent = memo(({ slide, isActive }) => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+     
       {isActive && (
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
           <div className="text-center">
@@ -180,7 +179,7 @@ const SlideContent = memo(({ slide, isActive }) => {
         </div>
       )}
 
-      {/* Subtle Corner Accents */}
+   
       <div className="absolute top-6 left-6 w-12 h-12 border-t border-l border-[#8B0000] opacity-30" />
       <div className="absolute top-6 right-6 w-12 h-12 border-t border-r border-[#8B0000] opacity-30" />
       <div className="absolute bottom-6 left-6 w-12 h-12 border-b border-l border-[#8B0000] opacity-30" />
@@ -231,7 +230,7 @@ const Banner = memo(() => {
         ))}
       </Swiper>
 
-      {/* Custom Navigation Arrows */}
+     
       <div className="swiper-button-prev-custom absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-black/30 hover:bg-black/50 border border-white/10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-400 group">
         <svg className="w-4 h-4 text-white group-hover:text-[#8B0000] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -244,7 +243,7 @@ const Banner = memo(() => {
         </svg>
       </div>
 
-      {/* Enhanced Custom Styles */}
+
       <style>{`
         .swiper-pagination-bullet {
           width: 8px;

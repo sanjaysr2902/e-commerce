@@ -18,7 +18,6 @@ export default function Navbar() {
   const wrapperRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -27,7 +26,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fetch products from API for suggestions
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -40,7 +38,6 @@ export default function Navbar() {
     fetchProducts();
   }, []);
 
-  // Filter products when typing
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setFilteredProducts([]);
@@ -55,7 +52,7 @@ export default function Navbar() {
     setShowSuggestions(true);
   }, [searchQuery, allProducts]);
 
-  // Hide suggestions on click outside
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -95,7 +92,7 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  // const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
+
 
   const cartItemsCount = cart.length
 
@@ -107,7 +104,7 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo Section */}
+        
           <div className="flex items-center space-x-2">
             <div className="flex-shrink-0 flex items-center">
              <Link to="/"><span className="text-2xl font-bold text-white tracking-tight">
@@ -119,7 +116,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Navigation Links */}
+  
           <div className="hidden md:flex items-center space-x-8">
 
             <Link 
@@ -139,7 +136,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Search Bar - Desktop */}
+         
           <div className="hidden lg:block flex-1 max-w-md mx-8 relative" ref={wrapperRef}>
             <form onSubmit={handleSearchSubmit}>
               <div className="relative">
@@ -164,7 +161,6 @@ export default function Navbar() {
               </div>
             </form>
 
-            {/* Search Suggestions */}
             {showSuggestions && filteredProducts.length > 0 && (
               <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 rounded-lg shadow-xl 
                             border border-gray-700 max-h-64 overflow-auto z-50">
@@ -195,9 +191,9 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Right Section - Cart & User */}
+     
           <div className="flex items-center space-x-4">
-            {/* Cart Icon */}
+           
             <Link 
               to="/cart" 
               className="relative p-2 text-white hover:text-[#8B0000] transition-colors duration-300"
@@ -214,7 +210,6 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Wishlist Icon */}
             <Link 
               to="/wishlist" 
               className="p-2 text-white hover:text-[#8B0000] transition-colors duration-300"
@@ -225,7 +220,7 @@ export default function Navbar() {
               </svg>
             </Link>
 
-            {/* User Section */}
+          
             <div className="hidden md:flex items-center space-x-3">
               {!user ? (
                 <div className="flex items-center space-x-3">
@@ -268,7 +263,6 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Mobile Menu Button */}
             <button 
               className="mobile-menu-button md:hidden p-2 text-white hover:text-[#8B0000] transition-colors duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -286,7 +280,6 @@ export default function Navbar() {
           <div ref={mobileMenuRef} className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-md 
                                            border-b border-gray-800 shadow-xl">
             <div className="px-4 py-4 space-y-4">
-              {/* Mobile Search */}
               <div className="relative" ref={wrapperRef}>
                 <form onSubmit={handleSearchSubmit}>
                   <div className="relative">
@@ -308,7 +301,6 @@ export default function Navbar() {
                 </form>
               </div>
 
-              {/* Mobile Navigation Links */}
               <div className="space-y-2">
 
                 <Link 
@@ -319,14 +311,7 @@ export default function Navbar() {
                 >
                   Products
                 </Link>
-                {/* <Link 
-                  to="/premium" 
-                  onClick={handleNavClick}
-                  className="block text-white font-medium py-3 px-4 hover:bg-[#8B0000]/20 rounded-lg 
-                           transition-colors duration-300 border-b border-gray-800"
-                >
-                  Premium
-                </Link> */}
+              
                 <Link 
                   to="/learnmore" 
                   onClick={handleNavClick}

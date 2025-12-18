@@ -8,7 +8,7 @@ export const ShippingProvider = ({ children }) => {
   const [shippingDetails, setShippingDetails] = useState(null);
   const [totalAmount, setTotalAmount] = useState(0);
 
-  // Accept totalAmount from the page
+
   const updateShippingDetails = (details, amount) => {
     setShippingDetails(details);
     setTotalAmount(amount);

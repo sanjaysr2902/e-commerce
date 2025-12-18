@@ -12,13 +12,11 @@ export default function Login() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({...formData,[e.target.name]: e.target.value });
   
   };
 
-  // Handle login submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,13 +28,11 @@ export default function Login() {
       if (res.data.length > 0) {
         const user = res.data[0];
 
-        // Check if blocked
-        if (user.isBlocked === "true") {
+        if (user.blocked === true) {
           toast.warn("Your account is blocked!");
           return;
         }
 
-        // Save user to context
         login(user);
 
         if (user.role === "admin") {
@@ -68,7 +64,6 @@ export default function Login() {
           Welcome back! Please log in to access your account.
         </p>
 
-        {/* Email Input */}
         <input
           type="email"
           name="email"
@@ -79,7 +74,6 @@ export default function Login() {
           required
         />
 
-        {/* Password Input */}
         <input
           type="password"
           name="password"
@@ -90,7 +84,6 @@ export default function Login() {
           required
         />
 
-        {/* Login Button */}
         <button
           type="submit"
           className="w-full bg-red-600 py-3 rounded-lg text-white font-semibold text-lg shadow-md hover:bg-red-700 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-red-500/20"
@@ -98,7 +91,6 @@ export default function Login() {
           Login
         </button>
 
-        {/* Links */}
         <p className="text-center text-gray-400 text-sm mt-4">
           Don't have an account?{" "}
           <span

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Api from "../auth/api"; // ✅ Import your axios instance
+import Api from "../auth/api"; 
 import { toast } from "react-toastify";
 
 export default function PremiumShowcase() {
   const [premiumProducts, setPremiumProducts] = useState([]);
 
-  // ✅ Fetch products from API
+ 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await Api.get("/products"); // http://localhost:5000/products
-        // ✅ Take only first 3 premium products
+        const res = await Api.get("/products"); 
+        
         setPremiumProducts(res.data.slice(0, 3));
       } catch (err) {
         toast.error("Failed to load premium products");
@@ -25,13 +25,13 @@ export default function PremiumShowcase() {
       className="relative bg-fixed bg-center bg-cover py-20"
       style={{
         backgroundImage:
-          "url('https://wallpaper-house.com/data/out/8/wallpaper2you_221635.jpg')", // ✅ Updated background
+          "url('https://wallpaper-house.com/data/out/8/wallpaper2you_221635.jpg')",
       }}
     >
-      {/* Overlay */}
+     
       <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* Content */}
+    
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
@@ -52,7 +52,7 @@ export default function PremiumShowcase() {
           automotive enthusiasts.
         </motion.p>
 
-        {/* Product Cards */}
+      
         <div className="grid md:grid-cols-3 gap-8">
           {premiumProducts.map((product, index) => (
             <motion.div
@@ -80,7 +80,7 @@ export default function PremiumShowcase() {
           ))}
         </div>
 
-        {/* No product fallback */}
+       
         {premiumProducts.length === 0 && (
           <p className="text-gray-400 mt-10 text-sm">
             No premium products available.

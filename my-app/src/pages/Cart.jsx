@@ -4,6 +4,7 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux"
 
 export default function Cart() {
   const { cart, removeFromCart, addToCart, decrementQuantity } = useContext(CartContext);
@@ -19,9 +20,12 @@ export default function Cart() {
   const handleCheckout = () => {
     navigate("/shipping", { state: { cart, totalAmount: total } });
   };
+  const product=useSelector((state)=>state)
+  console.log(product)
 
   return (
     <>
+    <p></p>
       <Navbar />
       
       <div className="min-h-screen bg-black p-6 pt-24">

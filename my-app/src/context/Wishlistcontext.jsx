@@ -1,29 +1,23 @@
 
-
-
-
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Api from "../auth/api";
 import { AuthContext } from "./AuthContext";
-import { toast } from "react-toastify"; // ✅ import toast
+import { toast } from "react-toastify";
 
-// Create WishlistContext as a named export
 export const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
-  const [wishlist, setWishlist] = useState([]); // lowercase for clarity
-
-  // Fetch wishlist whenever user changes
+  const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     const fetchWishlist = async () => {
       if (user) {
         try {
           const res = await Api.get(`/users/${user.id}`);
-          setWishlist(res.data.wishlist || []); // backend key should be lowercase
+          setWishlist(res.data.wishlist || []); 
         } catch (err) {
           console.error("Error fetching wishlist:", err);
-          toast.error("Failed to load wishlist."); // ✅ toast on error
+          toast.error("Failed to load wishlist."); 
           setWishlist([]);
         }
       } else {
@@ -34,10 +28,9 @@ export const WishlistProvider = ({ children }) => {
     fetchWishlist();
   }, [user]);
 
-  // Add an item to wishlist
   const addToWishlist = async (item) => {
     if (!user) {
-      toast.error("Please login to add items to your wishlist."); // ✅ use toast instead of alert
+      toast.error("Please login to add items to your wishlist."); 
       return;
     }
 
@@ -46,14 +39,13 @@ export const WishlistProvider = ({ children }) => {
 
     try {
       await Api.patch(`/users/${user.id}`, { wishlist: updatedWishlist });
-      toast.success(`${item.name} added to wishlist!`); // ✅ success toast
+      toast.success(`${item.name} added to wishlist!`); 
     } catch (err) {
       console.error("Error updating wishlist:", err);
-      toast.error("Failed to add item to wishlist."); // ✅ error toast
+      toast.error("Failed to add item to wishlist."); 
     }
   };
 
-  // Remove an item from wishlist
   const removeFromWishlist = async (itemId) => {
     if (!user) return;
 
@@ -62,10 +54,10 @@ export const WishlistProvider = ({ children }) => {
 
     try {
       await Api.patch(`/users/${user.id}`, { wishlist: updatedWishlist });
-      toast.info("Item removed from wishlist."); // ✅ optional toast
+      toast.info("Item removed from wishlist."); 
     } catch (err) {
       console.error("Error removing from wishlist:", err);
-      toast.error("Failed to remove item from wishlist."); // ✅ error toast
+      toast.error("Failed to remove item from wishlist."); 
     }
   };
 

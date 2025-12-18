@@ -9,7 +9,6 @@ export const CartProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const [cart, setCart] = useState([]);
 
-  // Fetch cart when user logs in
   useEffect(() => {
     const fetchCart = async () => {
       if (user) {
@@ -28,7 +27,6 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, [user]);
 
-  // Add item to cart
   const addToCart = async (item) => {
     if (!user) {
       toast.error("Please login to add items to your cart.");
@@ -59,7 +57,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Remove item
   const removeFromCart = async (itemId) => {
     if (!user) return;
     const updatedCart = cart.filter((item) => item.id !== itemId);
@@ -74,7 +71,6 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Decrement quantity
   const decrementQuantity = async (itemId) => {
     if (!user) return;
     const updatedCart = cart.map((item) =>

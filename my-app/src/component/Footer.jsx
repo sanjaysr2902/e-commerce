@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-black text-white border-t border-gray-800">
-      {/* Main Footer */}
+  
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
-          {/* Brand & Social */}
+         
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img src="/logo.png" alt="Sarax" className="h-10 w-10" />
@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+        
           <div>
             <h3 className="font-bold mb-4">Shop</h3>
             <ul className="space-y-2 text-sm">

@@ -10,7 +10,7 @@ export default function Register() {
     password: "",
     confirmPassword: "",
      role: "user",
-     isBlocked: "false"
+     Blocked: false
   });
 
   const navigate = useNavigate();
@@ -22,21 +22,18 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Confirm password check
     if (formData.password !== formData.confirmPassword) {
       toast.warn("Passwords do not match!");
       return;
     }
 
     try {
-      // Check if user already exists
       const res = await Api.get(`/users?email=${formData.email}`);
       if (res.data.length > 0) {
         toast.info("User already exists!");
         return;
       }
 
-      // Register new user
       await Api.post("/users", {
         name: formData.name,
         email: formData.email,
